@@ -8,7 +8,7 @@ public class UserRegistration {
 	static String lastNameRegex="^[A-Za-z]{3,}";
 	static String emailRegex="^[A-za-z0-9]+([.+-][A-za-z0-9]+)?[@][a-z0-9]+[.][a-z]{2,3}([.][a-z]{2})?$";
 	static String mobNumberRegex="^[0-9]{2}\s[0-9]{10}$";
-	
+	static String passwordRegex="^[a-zA-Z0-9]{8,16}$";
 	
       static Pattern pattern;
       static Matcher matcher;
@@ -32,6 +32,12 @@ public class UserRegistration {
      	  return matcher.matches();
      	  
        }
+      public static boolean password(String password) {
+    	   pattern =Pattern.compile(passwordRegex);
+    	  matcher=pattern.matcher(password);
+    	  return matcher.matches();
+    	  
+      }
       public static boolean mobNumber(String mobNumber) {
      	   pattern =Pattern.compile(mobNumberRegex);
      	  matcher=pattern.matcher(mobNumber);
@@ -43,6 +49,8 @@ public class UserRegistration {
 		System.out.println("Last Name=" +lastName("Fatma"));
 		System.out.println("Email=" +email("abc.xyz@bridgelabz.co.in"));
 		System.out.println("Mobile Number=" +mobNumber("91 9852453123"));
+		System.out.println("Password=" +password("91675438"));
+		
 	}
 
 }
